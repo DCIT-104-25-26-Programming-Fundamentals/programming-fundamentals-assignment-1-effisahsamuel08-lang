@@ -26,6 +26,34 @@
 # -----------------------------------------------------------------------------
 # REQUIREMENTS
 # -----------------------------------------------------------------------------
+def is_prime(n):
+    # Prime numbers must be greater than 1
+    if n <= 1:
+        return False
+    
+    # Check for divisors from 2 up to the square root of n
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False  # Found a divisor, so it's not prime
+            
+    return True  # No divisors found, so it is prime
+
+def main():
+    # Get integer input from the user
+    try:
+        user_input = int(input("Enter a number: "))
+        
+        # Check and print the result matching the expected output format
+        if is_prime(user_input):
+            print(f"{user_input} is a prime number.")
+        else:
+            print(f"{user_input} is NOT a prime number.")
+            
+    except ValueError:
+        print("Please enter a valid whole number.")
+
+if __name__ == "__main__":
+    main()
 # - You MUST implement the logic inside a function (see scaffold below).
 # - Numbers less than 2 are NOT prime — handle this inside the function.
 # - The main block must call the function and print the result.
